@@ -1,11 +1,10 @@
 # python-cantatadyn
-=================
 A Python port of Cantata's dynamic playlist Perl hack-implementation
 
 
 ## Intention
- noticed one day that Cantata's graphical client for MPD has a feature
- called *dynamic playlist*. The dynamic playlist is implemented as a
+I noticed one day that Cantata's graphical client for MPD has a feature
+called *dynamic playlist*. The dynamic playlist is implemented as a
 Unix daemon that is written in Perl.
 
 My Rasperry Pi based music player had no Perl packages installed.
@@ -22,7 +21,7 @@ but fixed some bugs and added retries on connection problems
 
 
 ## Requirements
-- [Python] >=3.7 needed
+- [Python](https://python.org) >=3.7 needed
 - [systemd] not needed but recommended
 - [MPD - Music Player Deamon](https://github.com/MusicPlayerDaemon/MPD) needed
 - [Cantata](https://raw.githubu.com/CDrummond/cantata) needed
@@ -32,10 +31,10 @@ but fixed some bugs and added retries on connection problems
 Install the package
  >sudo python3 setup.py install
 
- Edit connection informations
+Edit connection informations
  >sudo nano /etc/opt/cantatadyn.conf
 
- Start the service
+Start the service
  >sudo systemctl start cantatadyn.service
 
 
@@ -43,4 +42,4 @@ Install the package
 - there are no unittests
 - Only "Server/IP Mode" - Cantata and MPD on the same machine has never been
   tested by me. So I have no idea if dbus works or not.
--
+- ...
