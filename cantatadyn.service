@@ -1,0 +1,22 @@
+[Unit]
+Description=Cantata Dynamic Service
+Wants=mpd.service
+After=mpd.service
+
+[Service]
+Type=simple
+User=mpd
+Group=audio
+RuntimeDirectory=cantatadyn
+ExecStart=/usr/bin/python3 -m cantatadyn server
+Restart=on-failure
+RestartSec=10
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+
+
+# Hint: install/enable service
+# cp cantatadyn.service /lib/systemd/system/
+# systemctl enable cantatadyn.service
