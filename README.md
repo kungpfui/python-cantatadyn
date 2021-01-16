@@ -36,7 +36,7 @@ Install the package
  >sudo nano /etc/opt/cantatadyn.conf
 
  Start the service
- >sudo nano systemctl start cantatadyn.service
+ >sudo systemctl start cantatadyn.service
 
 
 ## TODO

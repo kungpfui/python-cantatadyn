@@ -25,7 +25,7 @@ class Prepare(_install):
             if not os.path.exists(folder):
                 os.makedirs(folder)
             shutil.chown(folder, 'mpd', 'audio')
-            os.chmod(folder, 0o644)
+            os.chmod(folder, 0o766)
 
         shutil.copy('cantatadyn.service', '/lib/systemd/system/')
         subprocess.call("systemctl enable cantatadyn.service", shell=True)
@@ -45,7 +45,7 @@ setup(name='cantatadyn',
     author='Stefan Schwendeler',
     author_email='kungpfui@users.noreply.github.com',
     url='https://github.com/kungpfui/python-cantatadyn',
-    description='Cantata/MPD Dynamic Playlist',
+    description='Cantata/MPD Dynamic Playlist Daemon',
     long_description=LONG_DESCRIPTION,
     license='GPL3.0',
 

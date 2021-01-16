@@ -618,16 +618,19 @@ def start_server(config=None, test_mode=False):
     log_level = logging.INFO if test_mode else logging.WARNING
     create_logger(log_file, log_level)
 
+    # create /run/... folder if it does not already exists
+    active_dir = os.path.dirname(conf.activeFile)
+    if not os.path.exists(active_dir):
+        os.makedirs(active_dir)
+
+    # connect to MPD
     _mpd = MPD(conf, server_mode=True, test_mode=test_mode)
     _mpd.connect(_mpd.handle_client_message)
 
+    # start http server
     if conf.httpPort > 0:
         CDRequestHandler.mpd = _mpd
         start_http_server(conf.httpPort, CDRequestHandler)
 
     _mpd.populate_play_queue_forever()
 
-
-
-if __name__ == '__main__':
-    main()
